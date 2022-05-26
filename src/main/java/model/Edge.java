@@ -1,11 +1,11 @@
 package model;
 
-import view.Line;
+import view.Arrow;
 
 public class Edge {
     private Node source;
     private Node destination;
-    private Line line;
+    private Arrow arrow;
 
     public Edge(Node source, Node destination) {
         this.source = source;
@@ -28,11 +28,19 @@ public class Edge {
         this.destination = destination;
     }
 
-    public Line getLine() {
-        return line;
+    public Arrow getLine() {
+        return arrow;
     }
 
-    public void setLine(Line line) {
-        this.line = line;
+    public void setLine(Arrow arrow) {
+        this.arrow = arrow;
+    }
+
+    @Override
+    public String toString() {
+        return "Edge{" +
+                "source=" + source.getName() +
+                ", destination=" + destination.getName() +
+                '}';
     }
 }

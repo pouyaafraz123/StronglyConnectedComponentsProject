@@ -39,8 +39,8 @@ public class Graph {
         else return rand;
     }
 
-    public void addNode(String name, NodeCircle circle){
-        vertices.add(new Node(name,circle));
+    public void addNode(Node node){
+        vertices.add(node);
         size++;
     }
 

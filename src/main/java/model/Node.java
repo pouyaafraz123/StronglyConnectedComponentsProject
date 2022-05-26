@@ -40,6 +40,10 @@ public class Node {
         this.nodeCircle = nodeCircle;
     }
 
+    public LinkedList<Edge> getEdges() {
+        return edges;
+    }
+
     @Override
     public String toString() {
         return "Node{" +
