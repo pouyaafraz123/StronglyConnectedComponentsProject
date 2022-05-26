@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1080.0" style="-fx-background-color: #16101F;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Controller">
+   <children>
+      <HBox alignment="CENTER" layoutX="200.0" layoutY="6.0" prefHeight="100.0" prefWidth="200.0" spacing="25.0" style="-fx-background-color: #3066BE90; -fx-border-width: 0 0 2 0; -fx-border-color: white;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <JFXButton fx:id="addVertex" buttonType="RAISED" focusTraversable="false" prefHeight="50.0" prefWidth="200.0" ripplerFill="#1cb3ff" style="-fx-background-color: #DB5ABA; -fx-text-fill: white; -fx-background-radius: 50px;" text="Add Vertex" wrapText="true">
+               <font>
+                  <Font name="System Bold Italic" size="17.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="find" buttonType="RAISED" focusTraversable="false" layoutX="550.0" layoutY="39.0" prefHeight="50.0" prefWidth="400.0" ripplerFill="#1cb3ff" style="-fx-background-color: #DB5ABA; -fx-text-fill: white; -fx-background-radius: 50px;" text="Find Strongly Connected Components" wrapText="true">
+               <font>
+                  <Font name="System Bold Italic" size="17.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="addEdge" buttonType="RAISED" focusTraversable="false" layoutX="488.0" layoutY="39.0" prefHeight="50.0" prefWidth="200.0" ripplerFill="#1cb3ff" style="-fx-background-color: #DB5ABA; -fx-text-fill: white; -fx-background-radius: 50px;" text="Add Edge" wrapText="true">
+               <font>
+                  <Font name="System Bold Italic" size="17.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </HBox>
+      <AnchorPane layoutY="100.0" style="-fx-border-color: white; -fx-border-width: 0 1 0 0;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="100.0">
+         <children>
+            <JFXTextArea fx:id="area" prefWidth="300.0" style="-fx-text-fill: white; -fx-border-width: 1;" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <font>
+                  <Font name="System Italic" size="13.0" />
+               </font>
+            </JFXTextArea>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="container" layoutX="478.0" layoutY="150.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0" />
+   </children>
+</AnchorPane>

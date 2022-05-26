@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane fx:id="anc" prefHeight="50.0" prefWidth="50.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.NodeCircle">
+   <children>
+      <TextField fx:id="field" alignment="CENTER" editable="false" focusTraversable="false" layoutX="-23.0" layoutY="39.0" style="-fx-background-color: transparent; -fx-text-fill: white;" text="4234" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor>
+         <font>
+            <Font name="System Italic" size="12.0" />
+         </font>
+      </TextField>
+      <Circle fx:id="circle" fill="#5386b500" radius="50.0" stroke="#00fffc" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="3.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+   </children>
+</AnchorPane>
