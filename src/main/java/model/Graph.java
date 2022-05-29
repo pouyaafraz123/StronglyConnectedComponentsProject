@@ -1,9 +1,8 @@
 package model;
 
-import view.NodeCircle;
-
 import java.security.SecureRandom;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Graph {
     private int size;
@@ -14,6 +13,25 @@ public class Graph {
     public Graph(int size){
         this.size = size;
         createRandomGraph(size);
+    }
+
+    public ArrayList<Node> getVertices() {
+        return vertices;
+    }
+
+    public static Graph getTranspose(Graph g){
+        Graph graph = new Graph();
+        for (Node node : g.getVertices()){
+            graph.getVertices().add(new Node(node.getName(), node.getCircle()));
+        }
+        for (Node node : g.getVertices()){
+            for (Edge edge : node.getEdges()){
+                ArrayList<Node> nodes = graph.getVertices();
+                nodes.get(g.getVertices().indexOf(edge.getDestination())).addEdge(nodes
+                        .get(g.getVertices().indexOf(edge.getSource())));
+            }
+        }
+        return graph;
     }
 
     private void createRandomGraph(int size) {
@@ -42,6 +60,11 @@ public class Graph {
     public void addNode(Node node){
         vertices.add(node);
         size++;
+    }
+
+    public void addNodes(Node... nodes){
+        vertices.addAll(Arrays.asList(nodes));
+        size+=nodes.length;
     }
 
     @Override

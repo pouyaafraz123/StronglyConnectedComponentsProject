@@ -2,7 +2,6 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import model.Graph;
 
 import java.io.File;
 
@@ -16,7 +15,6 @@ public class Main extends Application {
     }
 
     public static void main(String[] args) {
-      //  Graph graph = new Graph(10);
         launch(args);
     }
 }

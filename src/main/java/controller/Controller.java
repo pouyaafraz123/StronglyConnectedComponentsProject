@@ -1,10 +1,8 @@
 package controller;
 
-import algorithm.DFS;
+import algorithm.Al;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextArea;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -21,6 +19,7 @@ import view.NodeCircle;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
@@ -101,7 +100,23 @@ public class Controller implements Initializable {
         if (graph == null)
             graph = new Graph();
         Node node = new Node(String.valueOf(name), source);
-        find.setOnAction(event -> DFS.dfs(Controller.this,node));
+        find.setOnAction(event -> {
+            ArrayList<ArrayList<Integer>> ans = Al.findGroups(graph);
+            int count = 1;
+            area.setText("");
+            for (ArrayList<Integer> gr : ans){
+
+                appendArea("========== Group "+count+++" ==========\n");
+                appendArea("\t\t"+gr.toString()+"\n");
+                SecureRandom random = new SecureRandom();
+                Color color = Color.rgb(random.nextInt(200)+50,random.nextInt(200)+50,
+                        random.nextInt(200)+50,0.4);
+                for (int n : gr){
+                    graph.getVertices().get(n-1).getCircle().getCircle().setFill(color);
+                    //TODO Color hover bug And Arrows Incomplete
+                }
+            }
+        });
         graph.addNode(node);
         Circle circle = source.getCircle();
         circle.setOnMouseEntered(event -> {
@@ -153,8 +168,8 @@ public class Controller implements Initializable {
             double R = sqrt(pow((centerX1 - centerX2), 2) + pow(centerY1 - centerY2, 2));
             double yy = (RADIUS * abs(centerY1 - centerY2)) / R;
             double xx = (RADIUS * abs(centerX1 - centerX2)) / R;
-            xx *= 1.2;
-            yy *= 1.2;
+            xx *= 1.4;
+            yy *= 1.4;
 
             if (centerX1 < centerX2) {
                 startX = centerX1 + xx;
@@ -170,10 +185,10 @@ public class Controller implements Initializable {
                 startY = centerY1 - yy;
                 endY = centerY2 + yy + 6;
             }
-            Arrow arrow = new Arrow(startX, startY, endX, endY);
+
+            Arrow arrow = new Arrow(startX,startY,endX,endY);
 
             arrow.setStroke(Color.WHITE);
-
             container.getChildren().add(arrow);
             container.getChildren().add(arrow.triangle);
             //TODO   System.out.println(graph);
@@ -184,5 +199,9 @@ public class Controller implements Initializable {
 
     public void onDfs(Node node) {
         area.setText(area.getText()+"DFS("+node.getName()+")\n");
+    }
+
+    public void appendArea(String text){
+        area.setText(area.getText()+text);
     }
 }

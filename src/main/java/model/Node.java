@@ -1,13 +1,14 @@
 package model;
 
-import javafx.scene.shape.Circle;
 import view.NodeCircle;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class Node {
     private String name;
-    private final LinkedList<Edge> edges = new LinkedList<>();
+    private final List<Edge> edges = Collections.synchronizedList(new ArrayList<>());
     private NodeCircle nodeCircle;
 
     public Node(String name) {
@@ -40,7 +41,7 @@ public class Node {
         this.nodeCircle = nodeCircle;
     }
 
-    public LinkedList<Edge> getEdges() {
+    public List<Edge> getEdges() {
         return edges;
     }
 
