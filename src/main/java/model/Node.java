@@ -1,5 +1,6 @@
 package model;
 
+import view.Arrow;
 import view.NodeCircle;
 
 import java.util.ArrayList;
@@ -22,6 +23,12 @@ public class Node {
 
     public void addEdge(Node node){
         Edge edge = new Edge(this,node);
+        this.edges.add(edge);
+    }
+
+    public void addEdge(Node node, Arrow arrow){
+        Edge edge = new Edge(this,node);
+        edge.setLine(arrow);
         this.edges.add(edge);
     }
 
